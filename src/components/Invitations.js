@@ -15,7 +15,7 @@ function VisitorProfile() {
     if(id){
     fetchUser()
     }
-  }, [id])
+  }, [id, fetchUser])
 
   const fetchUser = async() => {
     try{
@@ -34,10 +34,11 @@ function VisitorProfile() {
           fill
           objectFit="cover"
           className="z-0 opacity-20"
+          alt="backgroundImage"
         />
         <div className="info flex flex-col items-center text-black w-full z-10">
           {user.map((user) => (
-          <div className="w-full px-8 py-8">
+          <div className="w-full px-8 py-8" key={user._id}>
             <h1 className="flex items-center justify-center font-bold text-2xl p-4 mb-5">
               Visitors Profile
             </h1>

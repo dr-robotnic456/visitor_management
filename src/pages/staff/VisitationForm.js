@@ -1,13 +1,12 @@
 import Auth from '@/components/Auth'
 import Image from 'next/image'
-import React, { useState } from 'react'
 
 
 function VisitationForm() {
     return (
         <div className='bg-white flex items-center justify-center h-screen'>
         <div className='w-[400px] flex rounded-lg bg-[#f1f1f1] shadow-lg shadow-black relative overflow-hidden'>
-            <Image src={"/bg.jpeg"} fill objectFit='cover' className='z-0 opacity-30 blur-sm' />
+            <Image src={"/bg.jpeg"} fill objectFit='cover' className='z-0 opacity-30 blur-sm' alt='bg'/>
                 <form className='text-black px-8 py-2 w-full z-10'>
                     <h2 className='font-bold text-center text-xl'>ADD VISITOR</h2>
                     <div className='block items-center'>

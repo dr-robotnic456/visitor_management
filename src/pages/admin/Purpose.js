@@ -51,7 +51,7 @@ function Purpose() {
                       </thead>
                       <tbody className="text-center">
                           {reasons.map(reason =>(
-                            <tr>
+                            <tr key={reason._id}>
                               <td>
                                 {reason.name}
                               </td>

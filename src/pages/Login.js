@@ -121,7 +121,7 @@ function Login() {
             }}
           >
             <div className="w-[60%] ml-[10%] absolute inset-0 flex">
-              <Image src="/logo.png" fill objectFit="contain" />
+              <Image src="/logo.png" fill objectFit="contain" alt="logo"/>
             </div>
           </div>
 

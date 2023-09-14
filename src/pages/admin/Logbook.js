@@ -34,7 +34,7 @@ function Logbook() {
       // Update filtered visitors whenever filter options change
       filterVisitors();
     },
-    [filterOptions]
+    [filterOptions, filterVisitors]
   );
 
   const fetchVisitors = async () => {

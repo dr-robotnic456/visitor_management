@@ -10,7 +10,6 @@ import { ImProfile } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
 import OverviewNav from "../../components/OverviewNav";
 import axios from "axios"; // Import axios
-import Link from "next/link";
 import AdminSidebar from "@/components/AdminSidebar";
 
 function Total() {
@@ -34,7 +33,7 @@ function Total() {
         // Update filtered visitors whenever filter options change
         filterVisitors();
       },
-      [filterOptions]
+      [filterOptions, filterVisitors]
     );
   
     const fetchVisitors = async () => {

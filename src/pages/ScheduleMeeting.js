@@ -43,7 +43,7 @@ function ScheduleMeeting() {
         <div className='bg-white flex items-center justify-center h-screen'>
             <UserNav />
         <div className='w-[400px] flex rounded-lg bg-[#f1f1f1] shadow-lg shadow-black relative h-[450px]'>
-            <Image src={"/bg.jpeg"} fill objectFit='cover' className='z-0 opacity-30 blur-sm' />
+            <Image src={"/bg.jpeg"} fill objectFit='cover' className='z-0 opacity-30 blur-sm' alt='backgroundImage'/>
                 <form className='text-black px-8 py-2 w-full z-10 h-[90%]' onSubmit={handleSubmit}>
                     {error && <div>{error}</div>}
                     <h2 className='font-bold text-center text-xl'>SCHEDULE MEETING</h2>

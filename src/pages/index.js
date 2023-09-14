@@ -30,7 +30,7 @@ const Home = () => {
       // Redirect to the login page or handle the absence of a token
       // For example, you can use router.push('/login') to redirect to the login page.
     }
-  }, []);
+  }, [router]);
 
   // Render a loading indicator or a placeholder while waiting for the redirection
   return null;

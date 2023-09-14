@@ -15,7 +15,7 @@ function Sidebar() {
   return (
     <div className='bg-[#4598FE] text-white flex flex-col h-screen fixed w-[20%]'>
       <div className='w-[80%] justify-center items-center relative flex mx-auto'>
-        <Image src={"/logo.png"} width={100} height={100} objectFit='contain'/>
+        <Image src={"/logo.png"} width={100} height={100} objectFit='contain' alt='logo'/>
       </div>
       <ul className=''>
         <Link href = "./Dashboard"><li className='py-3 font-semibold hover:bg-slate-400 px-2 cursor-pointer flex items-center space-x-2'><AiOutlineLineChart size={22}/><div>{title.overview}</div></li></Link>

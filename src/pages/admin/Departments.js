@@ -50,7 +50,7 @@ function Departments() {
                       </thead>
                       <tbody className="text-center h-[300px]">
                           {departments.map(department =>
-                            <tr>
+                            <tr key={department._id}>
                               <td>
                                 {department.name}
                               </td>

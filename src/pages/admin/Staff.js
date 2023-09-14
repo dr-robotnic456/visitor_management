@@ -55,7 +55,7 @@ function Staff() {
                         </thead>
                         <tbody className="text-center h-[300px]">
                             {staff.map(staff =>
-                              <tr>
+                              <tr key = {staff._id}>
                                 <td>
                                   {staff.name}
                                 </td>

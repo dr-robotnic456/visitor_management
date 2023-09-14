@@ -173,7 +173,7 @@ function Login() {
                 Login
               </button>
               <div>
-                Don't have an account, <Link href="/Signup">Sign Up</Link>
+                Dont have an account, <Link href="/Signup">Sign Up</Link>
               </div>
             </form>
           </div>

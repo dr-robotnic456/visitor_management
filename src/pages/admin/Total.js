@@ -33,7 +33,7 @@ function Total() {
         // Update filtered visitors whenever filter options change
         filterVisitors();
       },
-      [filterOptions, filterVisitors]
+      [filterOptions]
     );
   
     const fetchVisitors = async () => {

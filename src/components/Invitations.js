@@ -15,7 +15,7 @@ function VisitorProfile() {
     if(id){
     fetchUser()
     }
-  }, [id, fetchUser])
+  }, [id])
 
   const fetchUser = async() => {
     try{
@@ -45,7 +45,7 @@ function VisitorProfile() {
             <div className="w-[90%] items-center justify-center mb-5">
               <div className="flex items-center justify-between w-full mx-auto">
                 <div className="relative h-24 w-24 rounded-full overflow-hidden">
-                  <Image src={"/profile.png"} fill objectFit="cover" />
+                  <Image src={"/profile.png"} fill objectFit="cover" alt="profile"/>
                 </div>
                 <div className="flex-flex-col">
                 <div className="font-bold text-2xl">{user.name}</div>

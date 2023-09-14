@@ -22,7 +22,7 @@ function InviteForm() {
         fetchUser();
       }
     },
-    [id, fetchUser]
+    [id]
   );
 
   const fetchUser = async () => {

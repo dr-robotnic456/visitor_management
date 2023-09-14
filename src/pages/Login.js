@@ -163,7 +163,8 @@ function Login() {
               {error &&
                 <div className="text-red-600 text-center">
                   {error}
-                </div>}
+                </div>
+                }
 
               <button
                 type="submit"

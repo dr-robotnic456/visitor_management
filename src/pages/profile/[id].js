@@ -16,7 +16,7 @@ function Profile() {
     if (id) {
       fetchUser()
     }
-  }, [id, fetchUser])
+  }, [id])
 
   const fetchUser = async () => {
     try {

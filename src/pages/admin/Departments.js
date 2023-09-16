@@ -45,7 +45,7 @@ function Departments() {
                     <Link href="AddDepartment">Add Department</Link>
                   </button>
                 </div>
-                <div className="w-full flex items-center justify-center overflow-y-auto h-[350px]">
+                <div className="w-full flex items-center justify-center overflow-y-auto h-[450px]">
                   <div className="w-[90%] h-[90%]">
                     <table className="w-full h-full">
                       <thead className="text-white sticky top-0">
@@ -54,13 +54,13 @@ function Departments() {
                           <th className="py-1">No. of Members</th>
                         </tr>
                       </thead>
-                      <tbody className="text-center h-[300px]">
+                      <tbody className="text-center">
                           {departments.map(department =>
                             <tr key={department._id}>
-                              <td>
-                                {department.name}
+                              <td className="py-2">
+                                {department.department}
                               </td>
-                              <td>
+                              <td className="py-2">
                                 {/* {department.members.length} */}
                               </td>
                             </tr>

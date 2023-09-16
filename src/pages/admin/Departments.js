@@ -1,6 +1,7 @@
 import AdminSidebar from "@/components/AdminSidebar";
 import OverviewNav from "@/components/OverviewNav";
 import axios from "axios";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 function Departments() {
@@ -14,7 +15,7 @@ function Departments() {
 
   const fetchDepartments = async () => {
     try {
-      const response = await axios.get("/api/department");
+      const response = await axios.get("/api/departments");
       setDepartments(response.data);
     } catch (err) {
       if (err.response && err.response.data) {
@@ -38,7 +39,12 @@ function Departments() {
                   {error}
                 </p>}
 
-              <div className="w-full flex">
+              <div className="w-full">
+              <div className="flex w-full justify-end items-center my-2">
+                  <button className=" bg-[#4598FE] px-3 py-1 rounded-lg text-white mr-14">
+                    <Link href="AddDepartment">Add Department</Link>
+                  </button>
+                </div>
                 <div className="w-full flex items-center justify-center overflow-y-auto h-[350px]">
                   <div className="w-[90%] h-[90%]">
                     <table className="w-full h-full">
@@ -55,7 +61,7 @@ function Departments() {
                                 {department.name}
                               </td>
                               <td>
-                                {department.members.length}
+                                {/* {department.members.length} */}
                               </td>
                             </tr>
                           )}

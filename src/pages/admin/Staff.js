@@ -15,7 +15,7 @@ function Staff() {
   
     const fetchStaff = async () => {
       try {
-        const response = await axios.get("/api/staff");
+        const response = await axios.get("/api/employees");
         setStaff(response.data);
       } catch (err) {
         if (err.response && err.response.data) {
@@ -57,7 +57,7 @@ function Staff() {
                             {staff.map(staff =>
                               <tr key = {staff._id}>
                                 <td>
-                                  {staff.name}
+                                  {staff.username}
                                 </td>
                                 <td>
                                   {staff.department}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import Auth from "@/components/Auth";
+import { useRouter } from "next/router";
 
 function NewStaff() {
   const [user, setUser] = useState({
@@ -8,10 +9,13 @@ function NewStaff() {
     email: "",
     address: "",
     position: "",
+    department:"",
     password: "",
     telephone: "",
     confirm_password: ""
   });
+
+  const router = useRouter()
 
   const [error, setError] = useState("");
 
@@ -43,23 +47,23 @@ function NewStaff() {
     e.preventDefault();
     setError(""); // Clear any previous error message
     addEmployee();
+    router.push("/admin/Staff")
   };
 
   return (
-    <div className='fixed inset-0 flex flex-col justify-center items-center z-50 bg-opacity-50 bg-black'>
-      <div className='w-full flex justify-end px-10 absolute top-0 right-6'><button className='font-extrabold text-[100px] cursor-pointer' onClick={() => setShowPcMenu()}>x</button></div>
-      <div className='w-[500px] bg-[#f1f1f1] rounded-lg py-4'>
+    <div className='fixed inset-0 flex flex-col justify-center items-center z-50 bg-opacity-50 bg-white'>
+      <div className='w-[500px] bg-[#f1f1f1] rounded-lg py-2'>
       <h2  className='text-center font-bold text-3xl uppercase text-black'>Create New Employee</h2>
       {error &&
         <p className="error">
           {error}
         </p>}
-      <form onSubmit={handleSubmit}  className='px-10 w-full py-4 mx-auto rounded-lg text-black'>
+      <form onSubmit={handleSubmit}  className='px-10 w-full py-2 mx-auto rounded-lg text-black'>
         <div className='my-5'>
           <input
             type="text"
             name="username"
-            placeholder="Username"
+            placeholder="Name"
             value={user.username}
             onChange={handleInputChange}
             required
@@ -83,6 +87,17 @@ function NewStaff() {
             name="address"
             placeholder="Address"
             value={user.address}
+            onChange={handleInputChange}
+            required
+            className="w-full px-3 py-2"
+          />
+        </div>
+        <div className='my-5'>
+          <input
+            type="text"
+            name="department"
+            placeholder="department"
+            value={user.department}
             onChange={handleInputChange}
             required
             className="w-full px-3 py-2"

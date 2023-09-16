@@ -10,8 +10,8 @@ const handler = async (req, res) => {
       case "POST":
         try {
           // Check if the request body contains the required fields
-          const { username, email, password, address, telephone, position } = req.body;
-          if (!username || !email || !password || !address || !telephone || !position) {
+          const { username, email, password, address, telephone, position, department } = req.body;
+          if (!username || !email || !password || !address || !telephone || !position || !department) {
             return res.status(400).json({ message: "Please provide all required fields" });
           }
   
@@ -25,7 +25,8 @@ const handler = async (req, res) => {
             password: hashedPassword,
             address,
             telephone,
-            position
+            position,
+            department
           });
   
           if (!user) {

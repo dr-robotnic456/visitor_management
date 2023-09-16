@@ -12,6 +12,7 @@ import {
 
 import OverviewNav from "./OverviewNav";
 import AdminSidebar from "./AdminSidebar";
+import Link from "next/link";
 
 function AdminOverview() {
   const [activeTitle, setActiveTitle] = useState("Overview");
@@ -129,9 +130,11 @@ function AdminOverview() {
                 <h2 className="text-2xl font-bold">Visitors History</h2>
                 <BsClockHistory size={30} />
               </div>
-              <div className="flex items-center  bg-[#4598FE] px-2 py-1 rounded-lg">
+              <Link href={"/admin/Logbook"}>
+                <div className="flex items-center  bg-[#4598FE] px-2 py-1 rounded-lg">
                 <button className="px-3"> View All</button>
               </div>
+              </Link>
             </div>
 
             {/* user info */}

@@ -32,6 +32,4 @@ const Home = () => {
   return null;
 }
 
-}
-
 export default Auth(Home) 

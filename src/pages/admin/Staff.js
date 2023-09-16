@@ -42,9 +42,8 @@ function Staff() {
                 <div className="flex w-full justify-end pr-14 text-white cursor-pointer">
                   <Link href={"./NewStaff"}><button className="bg-[#4598FE] px-3 py-1 rounded-lg hover:">Add Staff</button></Link>
                 </div>
-                <div className="w-full flex">
-                  <div className="w-full flex items-center justify-center overflow-y-auto h-[350px]">
-                    <div className="w-[90%] h-[90%]">
+                  <div className="w-full flex items-center justify-center overflow-y-auto max-h-[400px] my-5">
+                    <div className="w-[90%]">
                       <table className="w-full h-full">
                         <thead className="text-white sticky top-0">
                           <tr className="bg-[#4598FE]">
@@ -56,13 +55,13 @@ function Staff() {
                         <tbody className="text-center">
                             {staff.map(staff =>
                               <tr key = {staff._id}>
-                                <td>
+                                <td className="py-2">
                                   {staff.username}
                                 </td>
-                                <td>
+                                <td className="py-2">
                                   {staff.department}
                                 </td>
-                                <td>
+                                <td className="py-2">
                                   {staff.position}
                                 </td>
                               </tr>
@@ -75,7 +74,6 @@ function Staff() {
               </div>
             </div>
           </div>
-        </div>
       </div>
   )
 }

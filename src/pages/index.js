@@ -2,7 +2,6 @@ import jwt from 'jsonwebtoken';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Auth from '@/components/Auth';
-import AddDepartment from './admin/AddDepartment';
 
 // Replace 'your-secret-key' with your actual secret key
 // const secret = 'your-secret-key';

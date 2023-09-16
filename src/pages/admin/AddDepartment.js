@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import React, { useState } from 'react'
 
 const AddDepartment = () => {
@@ -6,6 +7,8 @@ const AddDepartment = () => {
         department: "",
         hod: "",
     });
+
+    const router = useRouter()
 
     const [error, setError] = useState("");
 
@@ -30,6 +33,7 @@ const AddDepartment = () => {
         e.preventDefault();
         setError(""); // Clear any previous error message
         addDepartment();
+        router.push("/admin/Departments")
     };
     return (
         <div className='fixed inset-0 flex flex-col justify-center items-center z-50 bg-opacity-50 bg-black'>

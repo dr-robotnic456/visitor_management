@@ -53,7 +53,7 @@ function Staff() {
                             <th className="py-1">Position</th>
                           </tr>
                         </thead>
-                        <tbody className="text-center h-[300px]">
+                        <tbody className="text-center">
                             {staff.map(staff =>
                               <tr key = {staff._id}>
                                 <td>

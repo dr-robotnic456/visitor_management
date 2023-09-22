@@ -8,10 +8,11 @@ import {
 } from "react-icons/bi";
 import { ImProfile } from "react-icons/im";
 import { MdEmail } from "react-icons/md";
-import OverviewNav from "../../components/OverviewNav";
 import axios from "axios"; // Import axios
 import Link from "next/link";
 import AdminSidebar from "@/components/AdminSidebar";
+import { toast } from "react-toastify";
+import AdminNav from "./AdminNav";
 
 function Logbook() {
   const [activeTitle, setActiveTitle] = useState("Visitors Logbook");
@@ -24,6 +25,57 @@ function Logbook() {
     checkIn: false,
     checkOut: false
   });
+
+  const checkin = (visitor) => {
+    return(
+    visitor.checkIn ? visitor.checkIn :  (<button onClick={() => handleCheckIn(visitor)}>Check In </button>)
+    )
+  }
+
+  const checkout = (visitor) => {
+    return(
+    visitor.checkOut ? visitor.checkOut :  (<button onClick={() => handleCheckOut(visitor)}>Check Out </button>)
+    )
+  }
+
+  const handleCheckIn = async(visitor) => {
+    const checkInTime = new Date();
+
+    visitor.checkIn = checkInTime.toLocaleTimeString()
+    try {
+      const response = await axios.put(`/api/visitor/${visitor._id}`, {
+        checkIn: visitor.checkIn,
+      });
+
+    if(response.status === 200){
+      toast.success("Visitor successfully checked in")
+      setVisitors([...visitors]);
+    }else{
+      toast.error("Error checking visitor in")
+    }
+  }catch(error){
+    console.error(error)
+  }
+}
+  const handleCheckOut = async(visitor) => {
+    const checkOutTime = new Date();
+
+    visitor.checkOut = checkOutTime.toLocaleTimeString()
+    try {
+      const response = await axios.put(`/api/visitor/${visitor._id}`, {
+        checkOut: visitor.checkOut,
+      });
+
+    if(response.status === 200){
+      toast.success("Visitor successfully checked out")
+      setVisitors([...visitors]);
+    }else{
+      toast.error("Error checking visitor out")
+    }
+  }catch(error){
+    console.error(error)
+  }
+}
 
   useEffect(() => {
     fetchVisitors();
@@ -78,7 +130,7 @@ function Logbook() {
           <AdminSidebar />
 
           <div className="flex-col ml-[20%] w-[80%]">
-            <OverviewNav activeTitle={activeTitle} setTitle={setActiveTitle} />
+            <AdminNav activeTitle={activeTitle} setTitle={setActiveTitle} />
             <div className="flex mt-[110px]">
               {error &&
                 <p>
@@ -222,10 +274,10 @@ function Logbook() {
                           {visitor.duration}
                         </td>
                         <td className="py-2 px-3">
-                          {visitor.checkIn}
+                          {checkin(visitor)}
                         </td>
                         <td className="py-2 px-3">
-                          {visitor.checkOut}
+                          {checkout(visitor)}
                         </td>
                       </tr>
                     )}

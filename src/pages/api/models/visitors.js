@@ -43,6 +43,9 @@ const VisitorSchema = new Schema({
     },
     checkOut:{
         type:String
+    },
+    duration:{
+        type:String
     }
 });
 

@@ -1,8 +1,8 @@
 import AdminSidebar from "@/components/AdminSidebar";
-import OverviewNav from "@/components/OverviewNav";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import AdminNav from "./AdminNav";
 
 function Departments() {
     const [departments, setDepartments] = useState([]);
@@ -32,7 +32,7 @@ function Departments() {
           <AdminSidebar />
 
           <div className="flex-col ml-[20%] w-[80%]">
-            <OverviewNav activeTitle={activeTitle} setTitle={setActiveTitle} />
+            <AdminNav activeTitle={activeTitle} setTitle={setActiveTitle} />
             <div className="flex mt-[110px]">
               {error &&
                 <p>
@@ -45,7 +45,7 @@ function Departments() {
                     <Link href="AddDepartment">Add Department</Link>
                   </button>
                 </div>
-                <div className="w-full flex items-center justify-center overflow-y-auto h-[450px]">
+                <div className="w-full flex items-center justify-center">
                   <div className="w-[90%] h-[90%]">
                     <table className="w-full h-full">
                       <thead className="text-white sticky top-0">
@@ -56,7 +56,8 @@ function Departments() {
                       </thead>
                       <tbody className="text-center">
                           {departments.map(department =>
-                            <tr key={department._id}>
+                            (
+                              <tr key={department._id}>
                               <td className="py-2">
                                 {department.department}
                               </td>
@@ -64,6 +65,7 @@ function Departments() {
                                 {/* {department.members.length} */}
                               </td>
                             </tr>
+                            )
                           )}
                       </tbody>
                     </table>

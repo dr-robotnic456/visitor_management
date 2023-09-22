@@ -1,7 +1,7 @@
 import AdminSidebar from "@/components/AdminSidebar";
-import OverviewNav from "@/components/OverviewNav";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import AdminNav from "./AdminNav";
 
 function Purpose() {
   const [reasons, setReason] = useState([]);
@@ -32,7 +32,7 @@ function Purpose() {
           <AdminSidebar />
 
           <div className="flex-col ml-[20%] w-[80%]">
-            <OverviewNav activeTitle={activeTitle} setTitle={setActiveTitle} />
+            <AdminNav activeTitle={activeTitle} setTitle={setActiveTitle} />
             <div className="flex mt-[110px]">
               {error &&
                 <p>

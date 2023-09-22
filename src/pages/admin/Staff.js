@@ -1,8 +1,8 @@
 import AdminSidebar from "@/components/AdminSidebar";
-import OverviewNav from "@/components/OverviewNav";
 import axios from "axios";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import AdminNav from "./AdminNav";
 
 function Staff() {
     const [staff, setStaff] = useState([]);
@@ -32,7 +32,7 @@ function Staff() {
             <AdminSidebar />
   
             <div className="flex-col ml-[20%] w-[80%]">
-              <OverviewNav activeTitle={activeTitle} setTitle={setActiveTitle} />
+              <AdminNav activeTitle={activeTitle} setTitle={setActiveTitle} />
               <div className="flex flex-col mt-[110px]">
                 {error &&
                   <p>

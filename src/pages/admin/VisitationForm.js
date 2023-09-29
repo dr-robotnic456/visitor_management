@@ -14,7 +14,9 @@ function VisitationForm() {
         date: "",
         reason: "",
         time:"",
-        address:""
+        address:"",
+        checkIn:"",
+        checkOut:""
     });
 
     const [error, setError] = useState("");
@@ -41,7 +43,7 @@ function VisitationForm() {
     }
     return (
         <div className='bg-white flex items-center justify-center h-screen'>
-            <AdminNav />
+            {/* <AdminNav /> */}
         <div className='w-[400px] flex rounded-lg bg-[#f1f1f1] shadow-lg shadow-black relative h-[550px]'>
             <Image src={"/bg.jpeg"} fill objectFit='cover' className='z-0 opacity-30 blur-sm' alt='backgroundImage'/>
                 <form className='text-black px-8 py-2 w-full z-10 h-[90%]' onSubmit={handleSubmit}>
@@ -79,6 +81,14 @@ function VisitationForm() {
                     <div className='block items-center'>
                         <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
                         <input type="time" name="time" id="time" value={visitor.time} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                    </div>
+                    <div className='block items-center'>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Check in Time: </label>
+                        <input type="time" name="checkIn" id="checkIn" value={visitor.checkIn} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                    </div>
+                    <div className='block items-center'>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Checkout Time: </label>
+                        <input type="time" name="checkOut" id="checkOut" value={visitor.checkOut} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center justify-center bg-[#4598FE] my-2'>
                         <button type="submit" className='py-1 text-white w-full uppercase'>schedule meeting</button>

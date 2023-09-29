@@ -14,7 +14,9 @@ function ScheduleMeeting() {
         date: "",
         reason: "",
         time:"",
-        address:""
+        address:"",
+        checkIn:"",
+        checkOut:""
     });
 
     const [error, setError] = useState("");
@@ -79,6 +81,14 @@ function ScheduleMeeting() {
                     <div className='block items-center'>
                         <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
                         <input type="time" name="time" id="time" value={visitor.time} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                    </div>
+                    <div className='block items-center'>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
+                        <input type="time" name="checkIn" id="checkIn" value={visitor.checkIn} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                    </div>
+                    <div className='block items-center'>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
+                        <input type="time" name="checkOut" id="checkOut" value={visitor.checkOut} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center justify-center bg-[#4598FE] my-2'>
                         <button type="submit" className='py-1 text-white w-full uppercase'>schedule meeting</button>

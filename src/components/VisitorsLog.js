@@ -25,6 +25,65 @@ function VisitorsLog() {
     checkOut: false
   });
 
+  const checkin = (visitor) => {
+    return(
+    visitor.status === "pending" ? (<button onClick={() => handleCheckIn(visitor)}>Check In </button>) : visitor.checkIn 
+    )
+  }
+
+  const checkout = (visitor) => {
+    return(
+    visitor.status === "completed" ? (<button onClick={() => handleCheckOut(visitor)}>Check Out </button>) :  visitor.checkOut
+    )
+  }
+
+  // const handleCheckIn = async (visitor) => {
+  //   const checkInTime = new Date();
+  
+  //   visitor.checkIn = checkInTime.toLocaleTimeString();
+  //   try {
+  //     const response = await axios.put(`/api/visitor/${visitor._id}`, {
+  //       checkIn: visitor.checkIn,
+  //     });
+  
+  //     if (response.status === 200) {
+  //       toast.success("Visitor successfully checked in");
+  //       setVisitors((prevVisitors) =>
+  //         prevVisitors.map((v) => (v._id === visitor._id ? visitor : v)),
+
+  //         visitor.status === ""
+  //       );
+  //     } else {
+  //       toast.error("Error checking visitor in");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  
+  // const handleCheckOut = async (visitor) => {
+  //   const checkOutTime = new Date();
+  
+  //   visitor.checkOut = checkOutTime.toLocaleTimeString();
+  //   try {
+  //     const response = await axios.put(`/api/visitor/${visitor._id}`, {
+  //       checkOut: visitor.checkOut,
+  //     });
+  
+  //     if (response.status === 200) {
+  //       toast.success("Visitor successfully checked out");
+  //       setVisitors((prevVisitors) =>
+  //         prevVisitors.map((v) => (v._id === visitor._id ? visitor : v))
+  //       );
+  //     } else {
+  //       toast.error("Error checking visitor out");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
+  
+
   useEffect(() => {
     fetchVisitors();
   }, []);
@@ -37,9 +96,6 @@ function VisitorsLog() {
     [filterOptions]
   );
 
-  const handleCheck = () => {
-    new Date().toISOString().split("T")[0]
-  }
   const fetchVisitors = async () => {
     try {
       const response = await axios.get("/api/visitors");
@@ -212,7 +268,7 @@ function VisitorsLog() {
                         {visitor.host}
                       </td>
                       <td className="py-2 px-3">
-                        {visitor.id}
+                        {visitor._id}
                       </td>
                       <td className="py-2 px-3">
                         {visitor.email}
@@ -221,10 +277,12 @@ function VisitorsLog() {
                         {visitor.duration}
                       </td>
                       <td className="py-2 px-3">
-                        {visitor.status === "pending" ? <button onClick={handleCheck}>Check In</button> : visitor.checkIn}
+                        <div>
+                          {visitor.checkIn}
+                        </div>
                       </td>
                       <td className="py-2 px-3">
-                      {visitor.status === "completed" ? <button onClick={handleCheck}>Check In</button> : visitor.checkOut}
+                      <div>{visitor.checkOut}</div>
                       </td>
                     </tr>
                   )}

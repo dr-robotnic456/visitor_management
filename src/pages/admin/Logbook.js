@@ -26,56 +26,56 @@ function Logbook() {
     checkOut: false
   });
 
-  const checkin = (visitor) => {
-    return(
-    visitor.checkIn ? visitor.checkIn :  (<button onClick={() => handleCheckIn(visitor)}>Check In </button>)
-    )
-  }
+  // const checkin = (visitor) => {
+  //   return(
+  //   visitor.checkIn ? visitor.checkIn :  (<button onClick={() => handleCheckIn(visitor)}>Check In </button>)
+  //   )
+  // }
 
-  const checkout = (visitor) => {
-    return(
-    visitor.checkOut ? visitor.checkOut :  (<button onClick={() => handleCheckOut(visitor)}>Check Out </button>)
-    )
-  }
+  // const checkout = (visitor) => {
+  //   return(
+  //   visitor.checkOut ? visitor.checkOut :  (<button onClick={() => handleCheckOut(visitor)}>Check Out </button>)
+  //   )
+  // }
 
-  const handleCheckIn = async(visitor) => {
-    const checkInTime = new Date();
+//   const handleCheckIn = async(visitor) => {
+//     const checkInTime = new Date();
 
-    visitor.checkIn = checkInTime.toLocaleTimeString()
-    try {
-      const response = await axios.put(`/api/visitor/${visitor._id}`, {
-        checkIn: visitor.checkIn,
-      });
+//     visitor.checkIn = checkInTime.toLocaleTimeString()
+//     try {
+//       const response = await axios.put(`/api/visitor/${visitor._id}`, {
+//         checkIn: visitor.checkIn,
+//       });
 
-    if(response.status === 200){
-      toast.success("Visitor successfully checked in")
-      setVisitors([...visitors]);
-    }else{
-      toast.error("Error checking visitor in")
-    }
-  }catch(error){
-    console.error(error)
-  }
-}
-  const handleCheckOut = async(visitor) => {
-    const checkOutTime = new Date();
+//     if(response.status === 200){
+//       toast.success("Visitor successfully checked in")
+//       setVisitors([...visitors]);
+//     }else{
+//       toast.error("Error checking visitor in")
+//     }
+//   }catch(error){
+//     console.error(error)
+//   }
+// }
+//   const handleCheckOut = async(visitor) => {
+//     const checkOutTime = new Date();
 
-    visitor.checkOut = checkOutTime.toLocaleTimeString()
-    try {
-      const response = await axios.put(`/api/visitor/${visitor._id}`, {
-        checkOut: visitor.checkOut,
-      });
+//     visitor.checkOut = checkOutTime.toLocaleTimeString()
+//     try {
+//       const response = await axios.put(`/api/visitor/${visitor._id}`, {
+//         checkOut: visitor.checkOut,
+//       });
 
-    if(response.status === 200){
-      toast.success("Visitor successfully checked out")
-      setVisitors([...visitors]);
-    }else{
-      toast.error("Error checking visitor out")
-    }
-  }catch(error){
-    console.error(error)
-  }
-}
+//     if(response.status === 200){
+//       toast.success("Visitor successfully checked out")
+//       setVisitors([...visitors]);
+//     }else{
+//       toast.error("Error checking visitor out")
+//     }
+//   }catch(error){
+//     console.error(error)
+//   }
+// }
 
   useEffect(() => {
     fetchVisitors();
@@ -265,7 +265,7 @@ function Logbook() {
                           {visitor.host}
                         </td>
                         <td className="py-2 px-3">
-                          {visitor.id}
+                          {visitor._id}
                         </td>
                         <td className="py-2 px-3">
                           {visitor.email.slice(0,9)}...
@@ -274,10 +274,10 @@ function Logbook() {
                           {visitor.duration}
                         </td>
                         <td className="py-2 px-3">
-                          {checkin(visitor)}
+                          {visitor.checkIn}
                         </td>
                         <td className="py-2 px-3">
-                          {checkout(visitor)}
+                          {visitor.checkOut}
                         </td>
                       </tr>
                     )}

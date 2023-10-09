@@ -51,19 +51,19 @@ function Departments() {
                       <thead className="text-white sticky top-0">
                         <tr className="bg-[#4598FE]">
                           <th className="py-1">Department</th>
-                          <th className="py-1">No. of Members</th>
+                          {/* <th className="py-1">No. of Members</th> */}
                         </tr>
                       </thead>
                       <tbody className="text-center">
-                          {departments.map(department =>
+                          {departments && departments.map(department =>
                             (
                               <tr key={department._id}>
                               <td className="py-2">
                                 {department.department}
                               </td>
-                              <td className="py-2">
+                              {/* <td className="py-2"> */}
                                 {/* {department.members.length} */}
-                              </td>
+                              {/* </td> */}
                             </tr>
                             )
                           )}

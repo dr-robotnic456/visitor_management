@@ -16,7 +16,8 @@ function ScheduleMeeting() {
         time:"",
         address:"",
         checkIn:"",
-        checkOut:""
+        checkOut:"",
+        duration:""
     });
 
     const [error, setError] = useState("");
@@ -83,12 +84,16 @@ function ScheduleMeeting() {
                         <input type="time" name="time" id="time" value={visitor.time} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center'>
-                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Check In: </label>
                         <input type="time" name="checkIn" id="checkIn" value={visitor.checkIn} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center'>
-                        <label htmlFor="time" className='text-lg my-1 font-semibold'>Time: </label>
+                        <label htmlFor="time" className='text-lg my-1 font-semibold'>CheckOut: </label>
                         <input type="time" name="checkOut" id="checkOut" value={visitor.checkOut} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                    </div>
+                    <div className='block items-center'>
+                        <label htmlFor="duration" className='text-lg my-1 font-semibold'>Duration: </label>
+                        <input type="text" name="checkOut" id="checkOut" value={visitor.duration} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center justify-center bg-[#4598FE] my-2'>
                         <button type="submit" className='py-1 text-white w-full uppercase'>schedule meeting</button>

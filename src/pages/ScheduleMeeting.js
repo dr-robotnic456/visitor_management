@@ -93,7 +93,7 @@ function ScheduleMeeting() {
                     </div>
                     <div className='block items-center'>
                         <label htmlFor="duration" className='text-lg my-1 font-semibold'>Duration: </label>
-                        <input type="text" name="checkOut" id="checkOut" value={visitor.duration} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
+                        <input type="text" name="duration" id="duration" value={visitor.duration} onChange={handleInputChange} className='w-full bg-slate-300 px-2 py-1'/>
                     </div>
                     <div className='block items-center justify-center bg-[#4598FE] my-2'>
                         <button type="submit" className='py-1 text-white w-full uppercase'>schedule meeting</button>
